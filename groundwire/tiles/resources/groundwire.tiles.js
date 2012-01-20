@@ -1,5 +1,5 @@
 jQuery(function($) {
-  $('.tile-placeholder').each(function() {
+  $('div[data-tile-href]').each(function() {
       $(this).addClass('tile-editable');
       var href = $(this).attr('data-tile-href');
       var edithref = href.replace(/@@/, '@@edit-tile/');

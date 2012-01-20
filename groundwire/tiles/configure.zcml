@@ -60,20 +60,6 @@
       layer=".interfaces.IGroundwireTilesLayer"
       />
 
-  <!-- 8000: Turn the response into an lxml tree for further manipulation -->
-  <adapter
-      for="* .interfaces.IGroundwireTilesLayer"
-      name="groundwire.tiles.parsexml"
-      factory=".transform.ParseXML"
-      />
-
-  <!-- 8500: Finds and includes tiles in the output -->
-  <adapter
-     for="* .interfaces.IGroundwireTilesLayer"
-     name="groundwire.tiles.tilepage"
-     factory=".transform.IncludeTiles"
-     />
-  
    <subscriber handler=".handlers.notifyModified" />
 
 </configure>

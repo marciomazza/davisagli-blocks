@@ -26,11 +26,10 @@ setup(name='groundwire.tiles',
       install_requires=[
           'setuptools',
           'lxml',
+          'plone.app.blocks',
           'plone.app.textfield',
           'plone.app.tiles',
           'plone.tiles',
-          'plone.transformchain',
-          'repoze.xmliter',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

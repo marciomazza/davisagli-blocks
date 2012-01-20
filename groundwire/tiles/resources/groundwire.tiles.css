@@ -1,8 +1,5 @@
-.tile-placeholder {
-    position: relative;
-}
-
 .tile-editable {
+    position: relative;
     outline: 2px dashed #e8e8e8;
     min-height: 1.5em;
 }
@@ -19,6 +16,6 @@
     z-index: 500;
 }
 
-.tile-placeholder:hover .tile-edit-link {
+.tile-editable:hover .tile-edit-link {
     display: block !important;
 }
