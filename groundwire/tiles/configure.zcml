@@ -1,0 +1,79 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="groundwire.tiles">
+
+  <!-- Include configuration for dependencies listed in setup.py -->
+  <includeDependencies package="." />
+
+  <gs:registerProfile
+      name="default"
+      title="Groundwire Tile Rendering"
+      directory="profiles/default"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <plone:tile
+      name="groundwire.tiles.richtext"
+      title="Groundwire rich text tile"
+      description="A tile containing rich text"
+      add_permission="cmf.ModifyPortalContent"
+      schema=".tile.IRichTextTileData"
+      class=".tile.RichTextTile"
+      permission="zope2.View"
+      for="*"
+      />
+      
+  <plone:tile
+      name="groundwire.tiles.plaintext"
+      title="Groundwire plain text tile"
+      description="A tile containing plain text"
+      add_permission="cmf.ModifyPortalContent"
+      schema=".tile.IPlainTextTileData"
+      class=".tile.PlainTextTile"
+      permission="zope2.View"
+      for="*"
+      />
+  
+  <browser:page
+      for="*"
+      name="twocolumnfooter_document_view"
+      template="twocolumnfooter.pt"
+      permission="zope2.View"
+      layer=".interfaces.IGroundwireTilesLayer"
+      />
+  
+  <browser:resource
+      name="groundwire.tiles.css"
+      file="resources/groundwire.tiles.css"
+      layer=".interfaces.IGroundwireTilesLayer"
+      />
+
+  <browser:resource
+      name="groundwire.tiles.js"
+      file="resources/groundwire.tiles.js"
+      layer=".interfaces.IGroundwireTilesLayer"
+      />
+
+  <!-- 8000: Turn the response into an lxml tree for further manipulation -->
+  <adapter
+      for="* .interfaces.IGroundwireTilesLayer"
+      name="groundwire.tiles.parsexml"
+      factory=".transform.ParseXML"
+      />
+
+  <!-- 8500: Finds and includes tiles in the output -->
+  <adapter
+     for="* .interfaces.IGroundwireTilesLayer"
+     name="groundwire.tiles.tilepage"
+     factory=".transform.IncludeTiles"
+     />
+  
+   <subscriber handler=".handlers.notifyModified" />
+
+</configure>

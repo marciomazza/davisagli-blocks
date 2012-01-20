@@ -1,0 +1,24 @@
+.tile-placeholder {
+    position: relative;
+}
+
+.tile-editable {
+    outline: 2px dashed #e8e8e8;
+    min-height: 1.5em;
+}
+
+.tile-editable:hover {
+    outline: 2px dashed #b8b8b8;
+}
+
+.tile-edit-link {
+    display: none !important;
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    z-index: 500;
+}
+
+.tile-placeholder:hover .tile-edit-link {
+    display: block !important;
+}

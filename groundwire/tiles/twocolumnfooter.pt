@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+        <metal:field use-macro="python:context.widget('text', mode='view')">
+            Body text
+        </metal:field>
+        
+        <div class="bottom-left">
+          <div class="tile-placeholder"
+               tal:attributes="data-tile-href string:${context/absolute_url}/@@groundwire.tiles.richtext/bottom-left-tile" />
+        </div>
+        <div class="bottom-right">
+          <div class="tile-placeholder"
+               tal:attributes="data-tile-href string:${context/absolute_url}/@@groundwire.tiles.richtext/bottom-right-tile" />
+        </div>
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

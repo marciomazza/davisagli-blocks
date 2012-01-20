@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+  <javascript id="++resource++groundwire.tiles.js" expression="python:object.portal_membership.checkPermission('Modify portal content', object)" />
+</object>

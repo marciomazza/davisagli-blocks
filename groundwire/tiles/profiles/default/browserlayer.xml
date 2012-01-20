@@ -1,0 +1,6 @@
+<layers>
+    <layer
+        name="groundwire.tiles"
+        interface="groundwire.tiles.interfaces.IGroundwireTilesLayer"
+        />
+</layers>
