@@ -1,7 +1,0 @@
-<registry>
-
-    <record name="plone.app.blocks.interfaces.IBlocksSettings.retain_tile_links">
-        <value>True</value>
-    </record>
-
-</registry>
